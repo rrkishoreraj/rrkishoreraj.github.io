@@ -1,0 +1,113 @@
+/* CSS files add styling rules to your content */
+
+body {
+  font-family:Garamond; font-size:25px;
+  /*font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif; */
+  margin: 2em;
+}
+
+header { 
+  /*background-color: wheat; */
+  font-size: 1.75rem;
+}
+
+#infix{
+  color: black;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.continueBtn {
+  color: white;
+  width: auto;
+  padding: 10px 18px;
+  background-color: #D2691E;
+  border: none;
+}
+/* Center the image and position the close button */
+.containermodal {
+  padding: 16px;
+}
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+/* Add Zoom Animation */
+.animate {
+  animation: animatezoom 0.6s
+}
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  .continueBtn {
+    width: 100%;
+  }
+}
+#displayInstructions{
+  color: black;
+}
+section{
+  text-align: left;
+}
+div {
+  text-align: center;
+}
+body{
+  background:linear-gradient(to bottom, #DEB887, #592d0d);
+}
+.center{
+  text-align:center;
+  margin:auto;
+  padding:10px;
+  width:30%;
+}
+#div1{
+  background-image: url("https://www.hdwallpaper.nu/wp-content/uploads/2015/02/Houten-achtergronden-houten-wallpapers-hd-hout-wallpaper-afbeelding-3.jpg");
+}
+p{
+  color:white;
+}
+#stack{
+  color: black;
+}
+#postfix_expression{
+  color: black;
+}
+#prefixDescription{
+  color: white;
+}
+#reversePrefixResult{
+  color: white;
+}
+#prefixFinal{
+  color: black;
+}
+#refreshButton{
+  color: black;
+}
+footer{
+  text-align: center;
+}

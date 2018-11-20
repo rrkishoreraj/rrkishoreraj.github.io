@@ -1,0 +1,117 @@
+<!--Algorithm animations (JavaScript/Video): http://folk.ntnu.no/frh/algmet/animations.html-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Infix to Postfix Interactive Converter!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>  
+  <body style="font-family:Garamond; font-size:25px;">
+    <header>
+      <a href="https://github.com/kgashok/rrkishoreraj.github.io/issues/new" target="_">Issues?</a>; 
+      last <a href="https://github.com/kgashok/rrkishoreraj.github.io/commits/glitch" target = "_">checkin</a>
+      or <a href="https://saythanks.io/to/kgashok" target="_"> 
+      <button class="button"> Say Thanks! </button> </a>
+      <center>
+        <h1>Infix to Prefix & Postfix visualizer</h1>
+        <br>
+        <p>By Kishore Raj</p>
+      </center>
+    </header>
+    <div id="instructions" class="modal">
+      <div class="modal-content animate">
+        <div class="containermodal">
+          <center><p id="displayInstructions">This tool makes you understand the conversion of <i>Infix Expression</i> to <i>Prefix & Postfix Expression</i><br><br><b style="color:purple;">NOTE:</b><br><br>Hit the <b><i>'Visualize Conversion'</i></b> continuously to perform the visualization.</p></center>
+        </div>
+        <div class="containermodal" style="background-color:#f1f1f1">
+          <center><button type="button" onclick="document.getElementById('instructions').style.display='none'" class="continueBtn">Continue</button></center>
+        </div>
+      </div>
+    </div>
+    <div id="div1" style="padding:30px;" class="container well well-lg">
+      <div style="color:white;">Enter an infix expression :
+        <input type="text" placeholder="Enter a valid expression" id="infix">
+        <br><br>
+      </div>
+      <div class="center">
+        <p style="color:white;">Convert to:</p>
+        <form>
+          <label style="color:white;">
+            <input type="radio" name="conversion" id="option1" checked>Postfix
+          </label>
+          &nbsp&nbsp
+          <label style="color:white;">
+            <input type="radio" name="conversion" id="option2" >Prefix
+          </label>
+        </form>
+        <br>
+        <button type="button" onclick="infixTOPostfix()">Next
+        </button>
+      </div>
+      <p id="displayInfix"></p><br>
+      <div id="displayStack" style="display:none;">
+        <button type="button" onclick="displayAlgorithm()">
+          View Algorithm
+        </button>
+        <section id="displayPostfixAlgo" style="display:none;">
+          <h3 style="color: orange;"><b><i>Algorithm:</i></b></h3><br>
+          <pre>
+1. Scan the infix expression from left to right.
+2. If the scanned character is an operand, output it.
+3. Else,
+…..3.1 If the precedence of the scanned operator is greater than the precedence of the operator in the stack(or the stack is empty), push it.
+…..3.2 Else, Pop the operator from the stack until the precedence of the scanned operator is less-equal to the precedence of the operator residing on the top of the stack. Push the scanned operator to the stack.
+4. If the scanned character is an ‘(‘, push it to the stack.
+5. If the scanned character is an ‘)’, pop and output from the stack until an ‘(‘ is encountered.
+6. Repeat steps 2-6 until infix expression is scanned.
+7. Pop and output from the stack until it is not empty.
+</pre>
+        </section>
+        <section id="displayPrefixAlgo" style="display:none;">
+          <h3 style="color: orange;"><b><i>Algorithm:</i></b></h3><br>
+          <pre>
+We use the same to convert Infix to Prefix.
+Step 1: Reverse the infix expression i.e A+B*C will become C*B+A. Note while reversing each ‘(‘ will become ‘)’ and each ‘)’ becomes ‘(‘.
+Step 2: Obtain the postfix expression of the modified expression i.e CB*A+.
+Step 3: Reverse the postfix expression. Hence in our example prefix is +A*BC.</pre>
+        </section>
+        <button type="button" onclick="visualize_expr()" id="visualize">
+          Visualize Conversion
+        </button>
+        <div id="prefixDescription"></div>
+        <hr>
+        <div style="background-color:#ddd;">
+          <h3>Stack</h3>
+          <p id="stack">
+          </p>
+        </div>
+        <hr>
+        <div style="background-color:#ddd;">
+          <h3 id="changeName">Postfix Expression</h3>
+          <p id="postfix_expression">
+          </p>
+        </div>
+        <hr>
+        <!-- <div id="diamond-shield"></div> -->
+      </div>
+    </div>
+    <div class="container" id="reversePrefixResult" style="display:none;">
+      <br>Finally, <b><i>'again reverse the resultant prefix expression'</i></b><br><br>
+      <button id="prefixFinal" type="button" onclick="reversePrefixResult()">Click here to get the final converted Prefix Expression</button><br>
+    </div>
+    <footer id="refresh" style="display:none;">
+      <button id="refreshButton" type="button" onclick="location.reload();">Hit here to start with new expression</button>
+    </footer>
+    <!-- include the Glitch button to show what the webpage is about and
+to make it easier for folks to view source and remix 
+-->  
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script> 
+  </body>
+</html>
