@@ -6,9 +6,16 @@ body {
   margin: 2em;
 }
 
-header { 
+header {
   /*background-color: wheat; */
-  font-size: 1.75rem;
+  font-size: 20px;
+}
+a {
+  font-size: 30px;
+  color: white;
+}
+#issues {
+  text-align: right;
 }
 
 #infix{
